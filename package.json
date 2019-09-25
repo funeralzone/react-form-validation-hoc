@@ -1,0 +1,46 @@
+{
+  "name": "@funeralguide/react-form-validation-hoc",
+  "version": "1.0.0",
+  "description": "React Higher Order Component to handle simple form validation",
+  "homepage": "https://funeralguide.co.uk/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funeralzone/react-form-validation-hoc.git"
+  },
+  "license": "MIT",
+  "private": false,
+  "main": "lib/index.js",
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "6.26.0",
+    "babel-jest": "20.0.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-app": "^3.1.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "20.0.4"
+  },
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "NODE_ENV=development ./node_modules/.bin/babel --presets es2015,stage-0 ValidationContext.jsx -o lib/index.js",
+    "test": "NODE_ENV=test jest --env=jsdom --config ./config/jest.config.js --watchAll",
+    "ci:test": "NODE_ENV=test jest --env=jsdom --config ./config/jest.config.js"
+  },
+  "babel": {
+    "presets": [
+      "react-app",
+      "stage-0"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/funeralzone/react-form-validation-hoc/issues"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "author": "Joao Moreira <joao.moreira@funeralguide.co.uk>"
+}
