@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { scrollToElement } from '../utils';
+import { scrollToElement } from './utils';
 
 const ValidationContext = React.createContext({});
 
