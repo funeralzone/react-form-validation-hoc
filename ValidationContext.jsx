@@ -65,14 +65,14 @@ class ValidationProvider extends Component {
     });
   }
 
-  validate = (state, schema, scrollToErrors) => {
+  validate = (state, schema, scrollToErrors, scrollableParentRef) => {
     try {
       schema.validateSync(state, { abortEarly: false });
     } catch (errors) {
       const formattedErrors = ValidationProvider.buildErrors(errors);
       this.setErrors(formattedErrors);
       if (scrollToErrors) {
-        this.scrollToError(formattedErrors);
+        this.scrollToError(formattedErrors, scrollableParentRef);
       }
       return false;
     }
@@ -88,7 +88,7 @@ class ValidationProvider extends Component {
     this.setState({ formRefs });
   }
 
-  scrollToError = (errors) => {
+  scrollToError = (errors, scrollableParentRef) => {
     if (!errors || Object.keys(errors).length === 0) {
       return;
     }
@@ -96,7 +96,7 @@ class ValidationProvider extends Component {
     const { formRefs } = this.state;
     const firstElementWithErrors = formRefs[Object.keys(errors)[0]];
 
-    scrollToElement(firstElementWithErrors);
+    scrollToElement(firstElementWithErrors, scrollableParentRef);
   }
 
   render() {
